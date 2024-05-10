@@ -10,6 +10,10 @@ let mainWindow;
 function createWindow() {
   // Create the browser window.
   let windowOptions = {
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false
+    },
     width: 800,
     height: 715,
     icon: path.resolve(path.join(__dirname, 'img/icon-128.png')),
