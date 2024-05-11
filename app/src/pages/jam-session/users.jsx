@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, ButtonGroup, ProgressBar } from 'react-bootstrap';
 import VolumeIndicator from './volume-indicator.jsx';
 import UserPanel from './user-panel.jsx';
+import VolumeSlider from './volume-slider.jsx';
 
 class RemoteUsers extends React.Component {
   constructor(props) {
@@ -53,6 +54,12 @@ class RemoteUsers extends React.Component {
                   <Button>S</Button>
                   <Button disabled><VolumeIndicator channel={channel} /></Button>
                   <Button disabled>{channel.name}</Button>
+                  <VolumeSlider
+                    volume={channel.localVolume}
+                    onVolumeChange={(newVolume) => {
+                      channel.setVolume(newVolume);
+                    }}
+                  />
                 </ButtonGroup>
               </div>;
             })}
